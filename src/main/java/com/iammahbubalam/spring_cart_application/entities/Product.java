@@ -15,5 +15,16 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     private Long id;
+    private String productName;
+    private String productDescription;
+    private Double productPrice;
+    private Integer productQuantity;
+    private String productImageUrl;
+    private String productCategory;
+    private String productBrand;
+    private String productStatus;
+    private String productType;
+    private String productUnit;
+
 
 }
