@@ -1,11 +1,14 @@
 package com.iammahbubalam.spring_cart_application.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ValueGenerationType;
+
+import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -14,9 +17,12 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Category {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String name;
     private String description;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
 
 }
